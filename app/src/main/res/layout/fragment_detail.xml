@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- Hero image with back + favorite buttons -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <ImageView
+                android:id="@+id/iv_hero"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_overlay" />
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="12dp"
+                android:background="@drawable/circle_button_bg"
+                android:src="@android:drawable/ic_media_previous"
+                android:contentDescription="Back" />
+
+            <ImageButton
+                android:id="@+id/btn_favorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="12dp"
+                android:background="@drawable/circle_button_bg"
+                android:src="@android:drawable/btn_star_big_off"
+                android:contentDescription="Favorite" />
+
+        </FrameLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:textColor="#FF5252"
+            android:visibility="gone" />
+
+        <!-- Main content -->
+        <LinearLayout
+            android:id="@+id/content_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tv_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/accent"
+                android:paddingTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PLATFORMS"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:paddingTop="16dp"
+                android:letterSpacing="0.15" />
+
+            <TextView
+                android:id="@+id/tv_platforms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GENRES"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:paddingTop="16dp"
+                android:letterSpacing="0.15" />
+
+            <TextView
+                android:id="@+id/tv_genres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:paddingTop="4dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RELEASED"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:paddingTop="16dp"
+                android:letterSpacing="0.15" />
+
+            <TextView
+                android:id="@+id/tv_released"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/text_primary"
+                android:paddingTop="4dp" />
+
+            <!-- ── Price Comparison Section ─────────────────────────── -->
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:background="@color/text_secondary"
+                android:alpha="0.2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRICE COMPARISON"
+                android:textSize="11sp"
+                android:textColor="@color/text_secondary"
+                android:letterSpacing="0.15" />
+
+            <!-- Store filter chips -->
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_stores"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_all_stores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="All"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:checked="true" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_steam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Steam"
+                    style="@style/Widget.Material3.Chip.Filter" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_egs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Epic Games"
+                    style="@style/Widget.Material3.Chip.Filter" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Loading indicator for prices -->
+            <LinearLayout
+                android:id="@+id/prices_loading_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="12dp"
+                android:visibility="gone">
+
+                <ProgressBar
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    style="?android:attr/progressBarStyleSmall" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fetching prices across regions…"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"
+                    android:paddingStart="8dp" />
+            </LinearLayout>
+
+            <!-- Best deal highlight -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_best_deal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#1A4CAF50"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🏆 BEST DEAL"
+                        android:textSize="11sp"
+                        android:textColor="#4CAF50"
+                        android:letterSpacing="0.1" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="4dp">
+
+                        <TextView
+                            android:id="@+id/tv_best_country"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/text_primary"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_best_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#4CAF50"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_best_store"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:paddingTop="2dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Price list -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_prices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:id="@+id/tv_no_prices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price data not available for this game"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:paddingTop="12dp"
+                android:gravity="center"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
