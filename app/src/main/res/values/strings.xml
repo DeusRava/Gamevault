@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GameVault</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="favorites">Favorites</string>
+    <string name="price_comparison">Price Comparison</string>
+    <string name="best_deal">Best Deal</string>
+    <string name="no_prices">Price data not available</string>
+    <string name="loading_prices">Fetching prices across regions…</string>
+</resources>
